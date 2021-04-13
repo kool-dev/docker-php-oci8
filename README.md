@@ -27,11 +27,9 @@ Please refer to [kooldev/php](https://github.com/kool-dev/docker-php).
 
 ### Update images with templates
 
-- [fwd](https://github.com/fireworkweb/fwd#fireworkwebfwd)
+The Dockerfile's are automatically managed by `fwd-template.json` configuration file and files in the `template` folder. We should always make changes directly to these files.
 
-You should change `fwd-template.json` and `template` folder.
-
-After your changes, just run `kool docker fireworkweb/fwd:v1.0 fwd template` to compile the template and generate all version folder/files.
+After any changes, we need to run `kool run template` to parse the templates and generate folder/files for each version.
 
 ## License
 
