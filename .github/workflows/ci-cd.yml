@@ -25,7 +25,7 @@ jobs:
           docker run kooldev/php:7.4-nginx-oci8-prod php -r "extension_loaded('oci8') or die(1);"
 
       - name: Login to DockerHub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v1.9.0
         if: github.ref == 'refs/heads/main' && github.repository == 'kool-dev/docker-php-oci8'
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
