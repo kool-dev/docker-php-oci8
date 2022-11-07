@@ -11,6 +11,17 @@ This image is based on [kooldev/php](https://github.com/kool-dev/docker-php), pl
 - [7.4-nginx-oci8](https://github.com/kool-dev/docker-php-oci8/blob/main/7.4-nginx-oci8/Dockerfile)
 - [7.4-nginx-oci8-prod](https://github.com/kool-dev/docker-php-oci8/blob/main/7.4-nginx-oci8-prod/Dockerfile)
 
+### 8.1
+
+- [8.1-nginx-oci8](https://github.com/kool-dev/docker-php-oci8/blob/main/8.1-nginx-oci8/Dockerfile)
+- [8.1-nginx-oci8-prod](https://github.com/kool-dev/docker-php-oci8/blob/main/8.1-nginx-oci8-prod/Dockerfile)
+
+
+### 8.2
+
+- [8.2-nginx-oci8](https://github.com/kool-dev/docker-php-oci8/blob/main/8.2-nginx-oci8/Dockerfile)
+- [8.2-nginx-oci8-prod](https://github.com/kool-dev/docker-php-oci8/blob/main/8.2-nginx-oci8-prod/Dockerfile)
+
 ## Environment Variables
 
 Please refer to [kooldev/php](https://github.com/kool-dev/docker-php).
