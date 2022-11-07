@@ -72,6 +72,30 @@
                     "path": "template/Dockerfile"
                 }
             ]
+        },
+         {
+            "name": "8.2-nginx-oci8-prod",
+            "data": {
+                "from": "kooldev/php:8.3-nginx-prod"
+            },
+            "files": [
+                {
+                    "name": "Dockerfile",
+                    "path": "template/Dockerfile"
+                }
+            ]
+        },
+        {
+            "name": "8.2-nginx-oci8",
+            "data": {
+                "from": "kooldev/php:8.2-nginx"
+            },
+            "files": [
+                {
+                    "name": "Dockerfile",
+                    "path": "template/Dockerfile"
+                }
+            ]
         }
     ]
 }
