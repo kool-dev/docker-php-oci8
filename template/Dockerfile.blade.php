@@ -16,6 +16,6 @@ RUN apk add --update libaio libnsl && \
   ln -s ${ORACLE_HOME}/libocci.so.* ${ORACLE_HOME}/libocci.so && \
   ln -s ${ORACLE_HOME}/lib* /usr/lib && \
   ln -s ${ORACLE_HOME}/sqlplus /usr/bin/sqlplus && \
-  ln -s /usr/lib/libnsl.so.2  /usr/lib/libnsl.so.1 && \
+  ln -s /usr/lib/libnsl.so.3  /usr/lib/libnsl.so.1 && \
   docker-php-ext-configure oci8 --with-oci8=instantclient,$ORACLE_HOME && \
   docker-php-ext-install oci8
