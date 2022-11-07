@@ -5,3 +5,7 @@ scripts:
     - kool run template
     - docker build --pull -t kooldev/php:7.4-nginx-oci8 7.4-nginx-oci8
     - docker build --pull -t kooldev/php:7.4-nginx-oci8-prod 7.4-nginx-oci8-prod
+    - docker build --pull -t kooldev/php:8.0-nginx-oci8 8.0-nginx-oci8
+    - docker build --pull -t kooldev/php:8.0-nginx-oci8-prod 8.0-nginx-oci8-prod
+    - docker build --pull -t kooldev/php:8.1-nginx-oci8 8.1-nginx-oci8
+    - docker build --pull -t kooldev/php:8.1-nginx-oci8-prod 8.1-nginx-oci8-prod
