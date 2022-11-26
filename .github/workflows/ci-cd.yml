@@ -22,10 +22,19 @@ jobs:
           docker build --pull -t kooldev/php:${{ matrix.version }}-nginx-oci8 ${{ matrix.version }}-nginx-oci8
           docker build --pull -t kooldev/php:${{ matrix.version }}-nginx-oci8-prod ${{ matrix.version }}-nginx-oci8-prod
 
+      - name: Build Swoole
+        if: matrix.version != '7.4'
+        run: |
           docker build --pull -t kooldev/php:${{ matrix.version }}-nginx-swoole-oci8 ${{ matrix.version }}-nginx-swoole-oci8
           docker build --pull -t kooldev/php:${{ matrix.version }}-nginx-swoole-oci8-prod ${{ matrix.version }}-nginx-swoole-oci8-prod
 
       - name: Tests
+        run: |
+          docker run kooldev/php:${{ matrix.version }}-nginx-oci8 php -r "extension_loaded('oci8') or die(1);"
+          docker run kooldev/php:${{ matrix.version }}-nginx-oci8-prod php -r "extension_loaded('oci8') or die(1);"
+
+      - name: Tests Swoole
+        if: matrix.version != '7.4'
         run: |
           docker run kooldev/php:${{ matrix.version }}-nginx-oci8 php -r "extension_loaded('oci8') or die(1);"
           docker run kooldev/php:${{ matrix.version }}-nginx-oci8-prod php -r "extension_loaded('oci8') or die(1);"
@@ -46,5 +55,8 @@ jobs:
           docker push kooldev/php:${{ matrix.version }}-nginx-oci8
           docker push kooldev/php:${{ matrix.version }}-nginx-oci8-prod
 
+      - name: Push to DockerHub Swoole
+        if: github.ref == 'refs/heads/main' && github.repository == 'kool-dev/docker-php-oci8' && matrix.version != '7.4'
+        run: |
           docker push kooldev/php:${{ matrix.version }}-nginx-swoole-oci8
           docker push kooldev/php:${{ matrix.version }}-nginx-swoole-oci8-prod
