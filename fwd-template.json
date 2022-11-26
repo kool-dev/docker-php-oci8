@@ -50,6 +50,30 @@
             ]
         },
         {
+            "name": "8.0-nginx-swoole-oci8-prod",
+            "data": {
+                "from": "kooldev/php:8.0-nginx-swoole-prod"
+            },
+            "files": [
+                {
+                    "name": "Dockerfile",
+                    "path": "template/Dockerfile"
+                }
+            ]
+        },
+        {
+            "name": "8.0-nginx-swoole-oci8",
+            "data": {
+                "from": "kooldev/php:8.0-nginx-swoole"
+            },
+            "files": [
+                {
+                    "name": "Dockerfile",
+                    "path": "template/Dockerfile"
+                }
+            ]
+        },
+        {
             "name": "8.1-nginx-oci8-prod",
             "data": {
                 "from": "kooldev/php:8.1-nginx-prod"
@@ -65,6 +89,30 @@
             "name": "8.1-nginx-oci8",
             "data": {
                 "from": "kooldev/php:8.1-nginx"
+            },
+            "files": [
+                {
+                    "name": "Dockerfile",
+                    "path": "template/Dockerfile"
+                }
+            ]
+        },
+        {
+            "name": "8.1-nginx-swoole-oci8-prod",
+            "data": {
+                "from": "kooldev/php:8.1-nginx-swoole-prod"
+            },
+            "files": [
+                {
+                    "name": "Dockerfile",
+                    "path": "template/Dockerfile"
+                }
+            ]
+        },
+        {
+            "name": "8.1-nginx-swoole-oci8",
+            "data": {
+                "from": "kooldev/php:8.1-nginx-swoole"
             },
             "files": [
                 {
