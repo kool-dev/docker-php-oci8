@@ -52,7 +52,7 @@
         {
             "name": "8.0-nginx-swoole-oci8-prod",
             "data": {
-                "from": "kooldev/php:8.0-nginx-swoole-prod"
+                "from": "kooldev/php:8.0-swoole-nginx-prod"
             },
             "files": [
                 {
@@ -64,7 +64,7 @@
         {
             "name": "8.0-nginx-swoole-oci8",
             "data": {
-                "from": "kooldev/php:8.0-nginx-swoole"
+                "from": "kooldev/php:8.0-swoole-nginx"
             },
             "files": [
                 {
@@ -100,7 +100,7 @@
         {
             "name": "8.1-nginx-swoole-oci8-prod",
             "data": {
-                "from": "kooldev/php:8.1-nginx-swoole-prod"
+                "from": "kooldev/php:8.1-swoole-nginx-prod"
             },
             "files": [
                 {
@@ -112,7 +112,7 @@
         {
             "name": "8.1-nginx-swoole-oci8",
             "data": {
-                "from": "kooldev/php:8.1-nginx-swoole"
+                "from": "kooldev/php:8.1-swoole-nginx"
             },
             "files": [
                 {
@@ -148,7 +148,7 @@
         {
             "name": "8.2-nginx-swoole-oci8-prod",
             "data": {
-                "from": "kooldev/php:8.2-nginx-swoole-prod"
+                "from": "kooldev/php:8.2-swoole-nginx-prod"
             },
             "files": [
                 {
@@ -160,7 +160,7 @@
         {
             "name": "8.2-nginx-swoole-oci8",
             "data": {
-                "from": "kooldev/php:8.2-nginx-swoole"
+                "from": "kooldev/php:8.2-swoole-nginx"
             },
             "files": [
                 {
@@ -196,7 +196,7 @@
         {
             "name": "8.3-nginx-swoole-oci8-prod",
             "data": {
-                "from": "kooldev/php:8.3-nginx-swoole-prod"
+                "from": "kooldev/php:8.3-swoole-nginx-prod"
             },
             "files": [
                 {
@@ -208,7 +208,7 @@
         {
             "name": "8.3-nginx-swoole-oci8",
             "data": {
-                "from": "kooldev/php:8.3-nginx-swoole"
+                "from": "kooldev/php:8.3-swoole-nginx"
             },
             "files": [
                 {
