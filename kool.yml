@@ -3,22 +3,22 @@ scripts:
     - kool docker fireworkweb/fwd:v1.0 fwd template
   build:
     - kool run template
-    - docker build --pull -t kooldev/php:8.0-nginx-oci8 8.0-nginx-oci8
-    - docker build --pull -t kooldev/php:8.0-nginx-oci8-prod 8.0-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.0-swoole-nginx-oci8 8.0-swoole-nginx-oci8
-    - docker build --pull -t kooldev/php:8.0-swoole-nginx-oci8-prod 8.0-swoole-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.1-nginx-oci8 8.1-nginx-oci8
-    - docker build --pull -t kooldev/php:8.1-nginx-oci8-prod 8.1-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.1-swoole-nginx-oci8 8.1-swoole-nginx-oci8
-    - docker build --pull -t kooldev/php:8.1-swoole-nginx-oci8-prod 8.1-swoole-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.1-swoole-nginx-oci8-prod 8.1-swoole-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.2-nginx-oci8 8.2-nginx-oci8
-    - docker build --pull -t kooldev/php:8.2-nginx-oci8-prod 8.2-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.2-swoole-nginx-oci8 8.2-swoole-nginx-oci8
-    - docker build --pull -t kooldev/php:8.2-swoole-nginx-oci8-prod 8.2-swoole-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.2-swoole-nginx-oci8-prod 8.2-swoole-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.3-nginx-oci8 8.3-nginx-oci8
-    - docker build --pull -t kooldev/php:8.3-nginx-oci8-prod 8.3-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.3-swoole-nginx-oci8 8.3-swoole-nginx-oci8
-    - docker build --pull -t kooldev/php:8.3-swoole-nginx-oci8-prod 8.3-swoole-nginx-oci8-prod
-    - docker build --pull -t kooldev/php:8.3-swoole-nginx-oci8-prod 8.3-swoole-nginx-oci8-prod
+    - docker build --pull -t kooldev/php:8.0-oci8-nginx 8.0-oci8-nginx
+    - docker build --pull -t kooldev/php:8.0-oci8-nginx-prod 8.0-oci8-nginx-prod
+    - docker build --pull -t kooldev/php:8.0-oci8-swoole-nginx 8.0-oci8-swoole-nginx
+    - docker build --pull -t kooldev/php:8.0-oci8-swoole-nginx-prod 8.0-oci8-swoole-nginx-prod
+    - docker build --pull -t kooldev/php:8.1-oci8-nginx 8.1-oci8-nginx
+    - docker build --pull -t kooldev/php:8.1-oci8-nginx-prod 8.1-oci8-nginx-prod
+    - docker build --pull -t kooldev/php:8.1-oci8-swoole-nginx 8.1-oci8-swoole-nginx
+    - docker build --pull -t kooldev/php:8.1-oci8-swoole-nginx-prod 8.1-oci8-swoole-nginx-prod
+    - docker build --pull -t kooldev/php:8.1-oci8-swoole-nginx-prod 8.1-oci8-swoole-nginx-prod
+    - docker build --pull -t kooldev/php:8.2-oci8-nginx 8.2-oci8-nginx
+    - docker build --pull -t kooldev/php:8.2-oci8-nginx-prod 8.2-oci8-nginx-prod
+    - docker build --pull -t kooldev/php:8.2-oci8-swoole-nginx 8.2-oci8-swoole-nginx
+    - docker build --pull -t kooldev/php:8.2-oci8-swoole-nginx-prod 8.2-oci8-swoole-nginx-prod
+    - docker build --pull -t kooldev/php:8.2-oci8-swoole-nginx-prod 8.2-oci8-swoole-nginx-prod
+    - docker build --pull -t kooldev/php:8.3-oci8-nginx 8.3-oci8-nginx
+    - docker build --pull -t kooldev/php:8.3-oci8-nginx-prod 8.3-oci8-nginx-prod
+    - docker build --pull -t kooldev/php:8.3-oci8-swoole-nginx 8.3-oci8-swoole-nginx
+    - docker build --pull -t kooldev/php:8.3-oci8-swoole-nginx-prod 8.3-oci8-swoole-nginx-prod
+    - docker build --pull -t kooldev/php:8.3-oci8-swoole-nginx-prod 8.3-oci8-swoole-nginx-prod
