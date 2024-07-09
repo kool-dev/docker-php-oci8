@@ -1,4 +1,4 @@
-FROM kooldev/php:7.4-nginx
+FROM kooldev/php:8.3-swoole-nginx-prod
 
 ENV LD_LIBRARY_PATH /usr/local/instantclient
 ENV ORACLE_HOME /usr/local/instantclient
