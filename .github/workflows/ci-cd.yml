@@ -19,22 +19,22 @@ jobs:
 
       - name: Build
         run: |
-          docker build --pull -t kooldev/php:${{ matrix.version }}-nginx-oci8 ${{ matrix.version }}-nginx-oci8
-          docker build --pull -t kooldev/php:${{ matrix.version }}-nginx-oci8-prod ${{ matrix.version }}-nginx-oci8-prod
+          docker build --pull -t kooldev/php:${{ matrix.version }}-oci8-nginx ${{ matrix.version }}-oci8-nginx
+          docker build --pull -t kooldev/php:${{ matrix.version }}-oci8-nginx-prod ${{ matrix.version }}-oci8-nginx-prod
 
-          docker build --pull -t kooldev/php:${{ matrix.version }}-swoole-nginx-oci8 ${{ matrix.version }}-swoole-nginx-oci8
-          docker build --pull -t kooldev/php:${{ matrix.version }}-swoole-nginx-oci8-prod ${{ matrix.version }}-swoole-nginx-oci8-prod
+          docker build --pull -t kooldev/php:${{ matrix.version }}-oci8-swoole-nginx ${{ matrix.version }}-oci8-swoole-nginx
+          docker build --pull -t kooldev/php:${{ matrix.version }}-oci8-swoole-nginx-prod ${{ matrix.version }}-oci8-swoole-nginx-prod
 
       - name: Tests
         run: |
-          docker run kooldev/php:${{ matrix.version }}-nginx-oci8 php -r "extension_loaded('oci8') or die(1);"
-          docker run kooldev/php:${{ matrix.version }}-nginx-oci8-prod php -r "extension_loaded('oci8') or die(1);"
+          docker run kooldev/php:${{ matrix.version }}-oci8-nginx php -r "extension_loaded('oci8') or die(1);"
+          docker run kooldev/php:${{ matrix.version }}-oci8-nginx-prod php -r "extension_loaded('oci8') or die(1);"
 
-          docker run kooldev/php:${{ matrix.version }}-nginx-oci8 php -r "extension_loaded('oci8') or die(1);"
-          docker run kooldev/php:${{ matrix.version }}-nginx-oci8-prod php -r "extension_loaded('oci8') or die(1);"
+          docker run kooldev/php:${{ matrix.version }}-oci8-nginx php -r "extension_loaded('oci8') or die(1);"
+          docker run kooldev/php:${{ matrix.version }}-oci8-nginx-prod php -r "extension_loaded('oci8') or die(1);"
 
-          docker run kooldev/php:${{ matrix.version }}-swoole-nginx-oci8 php -r "extension_loaded('oci8') or die(1);"
-          docker run kooldev/php:${{ matrix.version }}-swoole-nginx-oci8-prod php -r "extension_loaded('oci8') or die(1);"
+          docker run kooldev/php:${{ matrix.version }}-oci8-swoole-nginx php -r "extension_loaded('oci8') or die(1);"
+          docker run kooldev/php:${{ matrix.version }}-oci8-swoole-nginx-prod php -r "extension_loaded('oci8') or die(1);"
 
       - name: Login to DockerHub
         uses: docker/login-action@v2.1.0
@@ -46,8 +46,8 @@ jobs:
       - name: Push to DockerHub
         if: github.ref == 'refs/heads/main' && github.repository == 'kool-dev/docker-php-oci8'
         run: |
-          docker push kooldev/php:${{ matrix.version }}-nginx-oci8
-          docker push kooldev/php:${{ matrix.version }}-nginx-oci8-prod
+          docker push kooldev/php:${{ matrix.version }}-oci8-nginx
+          docker push kooldev/php:${{ matrix.version }}-oci8-nginx-prod
 
-          docker push kooldev/php:${{ matrix.version }}-swoole-nginx-oci8
-          docker push kooldev/php:${{ matrix.version }}-swoole-nginx-oci8-prod
+          docker push kooldev/php:${{ matrix.version }}-oci8-swoole-nginx
+          docker push kooldev/php:${{ matrix.version }}-oci8-swoole-nginx-prod

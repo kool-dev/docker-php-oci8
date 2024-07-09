@@ -2,7 +2,7 @@
     "output": ".",
     "builds": [
         {
-            "name": "8.0-nginx-oci8-prod",
+            "name": "8.0-oci8-nginx-prod",
             "data": {
                 "from": "kooldev/php:8.0-nginx-prod"
             },
@@ -14,7 +14,7 @@
             ]
         },
         {
-            "name": "8.0-nginx-oci8",
+            "name": "8.0-oci8-nginx",
             "data": {
                 "from": "kooldev/php:8.0-nginx"
             },
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "name": "8.0-swoole-nginx-oci8-prod",
+            "name": "8.0-oci8-swoole-nginx-prod",
             "data": {
                 "from": "kooldev/php:8.0-swoole-nginx-prod"
             },
@@ -38,7 +38,7 @@
             ]
         },
         {
-            "name": "8.0-swoole-nginx-oci8",
+            "name": "8.0-oci8-swoole-nginx",
             "data": {
                 "from": "kooldev/php:8.0-swoole-nginx"
             },
@@ -50,7 +50,7 @@
             ]
         },
         {
-            "name": "8.1-nginx-oci8-prod",
+            "name": "8.1-oci8-nginx-prod",
             "data": {
                 "from": "kooldev/php:8.1-nginx-prod"
             },
@@ -62,7 +62,7 @@
             ]
         },
         {
-            "name": "8.1-nginx-oci8",
+            "name": "8.1-oci8-nginx",
             "data": {
                 "from": "kooldev/php:8.1-nginx"
             },
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "name": "8.1-swoole-nginx-oci8-prod",
+            "name": "8.1-oci8-swoole-nginx-prod",
             "data": {
                 "from": "kooldev/php:8.1-swoole-nginx-prod"
             },
@@ -86,7 +86,7 @@
             ]
         },
         {
-            "name": "8.1-swoole-nginx-oci8",
+            "name": "8.1-oci8-swoole-nginx",
             "data": {
                 "from": "kooldev/php:8.1-swoole-nginx"
             },
@@ -98,7 +98,7 @@
             ]
         },
         {
-            "name": "8.2-nginx-oci8-prod",
+            "name": "8.2-oci8-nginx-prod",
             "data": {
                 "from": "kooldev/php:8.2-nginx-prod"
             },
@@ -110,7 +110,7 @@
             ]
         },
         {
-            "name": "8.2-nginx-oci8",
+            "name": "8.2-oci8-nginx",
             "data": {
                 "from": "kooldev/php:8.2-nginx"
             },
@@ -122,7 +122,7 @@
             ]
         },
         {
-            "name": "8.2-swoole-nginx-oci8-prod",
+            "name": "8.2-oci8-swoole-nginx-prod",
             "data": {
                 "from": "kooldev/php:8.2-swoole-nginx-prod"
             },
@@ -134,7 +134,7 @@
             ]
         },
         {
-            "name": "8.2-swoole-nginx-oci8",
+            "name": "8.2-oci8-swoole-nginx",
             "data": {
                 "from": "kooldev/php:8.2-swoole-nginx"
             },
@@ -146,7 +146,7 @@
             ]
         },
         {
-            "name": "8.3-nginx-oci8-prod",
+            "name": "8.3-oci8-nginx-prod",
             "data": {
                 "from": "kooldev/php:8.3-nginx-prod"
             },
@@ -158,7 +158,7 @@
             ]
         },
         {
-            "name": "8.3-nginx-oci8",
+            "name": "8.3-oci8-nginx",
             "data": {
                 "from": "kooldev/php:8.3-nginx"
             },
@@ -170,7 +170,7 @@
             ]
         },
         {
-            "name": "8.3-swoole-nginx-oci8-prod",
+            "name": "8.3-oci8-swoole-nginx-prod",
             "data": {
                 "from": "kooldev/php:8.3-swoole-nginx-prod"
             },
@@ -182,7 +182,7 @@
             ]
         },
         {
-            "name": "8.3-swoole-nginx-oci8",
+            "name": "8.3-oci8-swoole-nginx",
             "data": {
                 "from": "kooldev/php:8.3-swoole-nginx"
             },
