@@ -65,3 +65,36 @@ After any changes, we need to run `kool run template` to parse the templates and
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Rebuilds and validation
+
+CI rebuilds on `docker-php-updated` repository dispatches and every Monday as a
+fallback, using `docker build --pull` to refresh each parent. Dispatch delivery
+still requires the upstream PHP repository's dispatch credentials and OCI8
+recipient configuration. Only builds on this repository's `main` branch publish
+images; PRs do not.
+
+To validate a local build:
+
+```sh
+python3 tests/check-generated.py
+docker build --pull -t oci8-test 8.4-oci8-nginx
+bash tests/test-image.sh oci8-test 8.4-oci8-nginx/Dockerfile
+```
+
+The smoke test checks PHP against the freshly pulled parent, OCI8, native
+Instant Client loading, and the expected Oracle no-listener error from a
+loopback connection. It is bounded to 30 seconds. Instant Client 11.2 hangs
+in the tested Alpine image with Docker's `--network none`, so this check uses
+the normal bridge but connects only to loopback. It does not test
+authentication, queries, TLS, SQL*Plus, or a live Oracle database.
+
+These images remain **amd64-only**. The template still downloads legacy Oracle
+Instant Client 11.2 x64 ZIPs from a third-party GitHub repository's mutable
+`master` branch without checksum verification. Successful loading is not
+provenance or security validation. Replacing that source/client and adding ARM
+support require separate licensing, provenance, and compatibility review.
+Swoole variants also depend on the separately published Swoole parents; a PHP
+dispatch alone does not guarantee those parents have finished rebuilding.
+After merging, maintainers must publish and verify every supported tag's
+runtime version and digest before considering stale published images fixed.
