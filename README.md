@@ -68,16 +68,17 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ## Rebuilds and validation
 
-CI rebuilds on `docker-php-updated` and `docker-php-swoole-updated` repository
-dispatches and every Monday as a fallback, using `docker build --pull` to
-refresh each parent. The Swoole follow-up event is sent after all of its image
-publications succeed, rebuilding OCI8 against those newly published parents.
-Workflow runs are serialized by ref so an early PHP-triggered rebuild cannot
-publish over the subsequent Swoole-triggered rebuild. Only superseded PR runs
-are canceled; main-branch release runs are allowed to finish. Dispatch delivery
-still requires the upstream PHP repository's dispatch credentials and OCI8
-recipient configuration. Only builds on this repository's `main` branch publish
-images; PRs do not.
+CI rebuilds on `docker-php-swoole-updated` repository dispatches, using
+`docker build --pull` to refresh each parent. The event is sent after all Swoole
+image publications succeed. Upstream PHP scheduled parent rebuilds propagate
+through Swoole to OCI8; there is no direct PHP event receiver or separate OCI8
+rebuild cron, avoiding duplicate or premature builds against old Swoole parents.
+Workflow runs are serialized by ref. Only superseded PR runs are canceled;
+main-branch release runs are allowed to finish. Dispatch delivery requires the
+upstream Swoole repository's dispatch credentials and OCI8 recipient
+configuration. If delivery fails, recover with this workflow's manual
+`workflow_dispatch` on `main` after the required parents have been published.
+Only builds on this repository's `main` branch publish images; PRs do not.
 
 To validate a local build:
 
@@ -100,6 +101,6 @@ Instant Client 11.2 x64 ZIPs from a third-party GitHub repository's mutable
 provenance or security validation. Replacing that source/client and adding ARM
 support require separate licensing, provenance, and compatibility review.
 Swoole variants depend on the separately published Swoole parents; verify
-delivery of the post-publication follow-up event as well as the PHP event.
+delivery of the post-publication event through the PHP → Swoole → OCI8 chain.
 After merging, maintainers must publish and verify every supported tag's
 runtime version and digest before considering stale published images fixed.

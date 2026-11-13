@@ -6,9 +6,7 @@ on:
   pull_request:
   workflow_dispatch:
   repository_dispatch:
-    types: [docker-php-updated, docker-php-swoole-updated]
-  schedule:
-    - cron: '43 6 * * 1'
+    types: [docker-php-swoole-updated]
 
 permissions:
   contents: read
