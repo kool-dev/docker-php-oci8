@@ -68,8 +68,13 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ## Rebuilds and validation
 
-CI rebuilds on `docker-php-updated` repository dispatches and every Monday as a
-fallback, using `docker build --pull` to refresh each parent. Dispatch delivery
+CI rebuilds on `docker-php-updated` and `docker-php-swoole-updated` repository
+dispatches and every Monday as a fallback, using `docker build --pull` to
+refresh each parent. The Swoole follow-up event is sent after all of its image
+publications succeed, rebuilding OCI8 against those newly published parents.
+Workflow runs are serialized by ref so an early PHP-triggered rebuild cannot
+publish over the subsequent Swoole-triggered rebuild. Only superseded PR runs
+are canceled; main-branch release runs are allowed to finish. Dispatch delivery
 still requires the upstream PHP repository's dispatch credentials and OCI8
 recipient configuration. Only builds on this repository's `main` branch publish
 images; PRs do not.
@@ -94,7 +99,7 @@ Instant Client 11.2 x64 ZIPs from a third-party GitHub repository's mutable
 `master` branch without checksum verification. Successful loading is not
 provenance or security validation. Replacing that source/client and adding ARM
 support require separate licensing, provenance, and compatibility review.
-Swoole variants also depend on the separately published Swoole parents; a PHP
-dispatch alone does not guarantee those parents have finished rebuilding.
+Swoole variants depend on the separately published Swoole parents; verify
+delivery of the post-publication follow-up event as well as the PHP event.
 After merging, maintainers must publish and verify every supported tag's
 runtime version and digest before considering stale published images fixed.
