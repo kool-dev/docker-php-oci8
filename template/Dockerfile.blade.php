@@ -3,6 +3,7 @@ FROM {{ $from }}
 ENV LD_LIBRARY_PATH /usr/local/instantclient
 ENV ORACLE_HOME /usr/local/instantclient
 
+# Download and unarchive Instant Client v11
 RUN apk add --update libaio libnsl $PHPIZE_DEPS && \
   curl -o /tmp/instaclient-basic.zip https://raw.githubusercontent.com/bumpx/oracle-instantclient/master/instantclient-basic-linux.x64-11.2.0.4.0.zip && \
   curl -o /tmp/instaclient-sdk.zip https://raw.githubusercontent.com/bumpx/oracle-instantclient/master/instantclient-sdk-linux.x64-11.2.0.4.0.zip && \

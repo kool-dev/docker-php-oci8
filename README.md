@@ -65,3 +65,42 @@ After any changes, we need to run `kool run template` to parse the templates and
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Rebuilds and validation
+
+CI rebuilds on `docker-php-swoole-updated` repository dispatches, using
+`docker build --pull` to refresh each parent. The event is sent after all Swoole
+image publications succeed. Upstream PHP scheduled parent rebuilds propagate
+through Swoole to OCI8; there is no direct PHP event receiver or separate OCI8
+rebuild cron, avoiding duplicate or premature builds against old Swoole parents.
+Workflow runs are serialized by ref. Only superseded PR runs are canceled;
+main-branch release runs are allowed to finish. Dispatch delivery requires the
+upstream Swoole repository's dispatch credentials and OCI8 recipient
+configuration. If delivery fails, recover with this workflow's manual
+`workflow_dispatch` on `main` after the required parents have been published.
+Only builds on this repository's `main` branch publish images; PRs do not.
+
+To validate a local build:
+
+```sh
+python3 tests/check-generated.py
+docker build --pull -t oci8-test 8.4-oci8-nginx
+bash tests/test-image.sh oci8-test 8.4-oci8-nginx/Dockerfile
+```
+
+The smoke test checks PHP against the freshly pulled parent, OCI8, native
+Instant Client loading, and the expected Oracle no-listener error from a
+loopback connection. It is bounded to 30 seconds. Instant Client 11.2 hangs
+in the tested Alpine image with Docker's `--network none`, so this check uses
+the normal bridge but connects only to loopback. It does not test
+authentication, queries, TLS, SQL*Plus, or a live Oracle database.
+
+These images remain **amd64-only**. The template still downloads legacy Oracle
+Instant Client 11.2 x64 ZIPs from a third-party GitHub repository's mutable
+`master` branch without checksum verification. Successful loading is not
+provenance or security validation. Replacing that source/client and adding ARM
+support require separate licensing, provenance, and compatibility review.
+Swoole variants depend on the separately published Swoole parents; verify
+delivery of the post-publication event through the PHP → Swoole → OCI8 chain.
+After merging, maintainers must publish and verify every supported tag's
+runtime version and digest before considering stale published images fixed.
