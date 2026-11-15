@@ -69,7 +69,8 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ## Rebuilds and validation
 
 CI rebuilds on `docker-php-swoole-updated` repository dispatches, using
-`docker build --pull` to refresh each parent. The event is sent after all Swoole
+an explicit parent pull once per build, retaining its ID for build ancestry and
+runtime checks instead of pulling again during tests. The event is sent after all Swoole
 image publications succeed. Upstream PHP scheduled parent rebuilds propagate
 through Swoole to OCI8; there is no direct PHP event receiver or separate OCI8
 rebuild cron, avoiding duplicate or premature builds against old Swoole parents.
@@ -80,10 +81,19 @@ configuration. If delivery fails, recover with this workflow's manual
 `workflow_dispatch` on `main` after the required parents have been published.
 Only builds on this repository's `main` branch publish images; PRs do not.
 
+The shared Bash/`jq` builder, tested-parent check, staging and publisher live in
+[kool-dev/kool](https://github.com/kool-dev/kool/tree/main/.github/actions),
+pinned to one immutable commit. Twelve native amd64 jobs build/test once, then
+stage exact tested IDs and push digests. A single publisher validates all twelve
+tags from the current run/attempt before stable updates. Fork/feature runs cannot
+publish. Rerun **all jobs** after failure; there is no cross-attempt reuse or
+resume workflow. Stable tag updates are sequential, not atomic.
+
 To validate a local build:
 
 ```sh
-python3 tests/check-generated.py
+docker run --rm -v "$PWD:/app" fireworkweb/fwd:v1.0 fwd template
+git diff --exit-code
 docker build --pull -t oci8-test 8.4-oci8-nginx
 bash tests/test-image.sh oci8-test 8.4-oci8-nginx/Dockerfile
 ```
